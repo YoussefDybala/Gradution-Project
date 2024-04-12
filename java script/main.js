@@ -1,4 +1,3 @@
-//////////////////////////////////////////////// Start Header 
 let dark = document.querySelector(".dark")
 let light = document.querySelector(".light")
 let body = document.querySelector("body")
@@ -21,6 +20,7 @@ dark.addEventListener('click' , function () {
         gear.style.color = "white"
     }
 })
+
 light.addEventListener('click' , function () {
     if (light.style.display = "none") {
         body.style.backgroundColor = "white"

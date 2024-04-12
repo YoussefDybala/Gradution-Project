@@ -29,7 +29,7 @@ light.addEventListener('click' , function () {
         body.style.transition = "0.3s"
         up.style.backgroundColor = "black"
         up.style.color = "white"
-        dayTime.style.backgroundImage = "url(../images/daytime_bg.jpeg)"
+        dayTime.style.backgroundImage = "url(images/daytime_bg.jpeg)"
         dayTime.style.color = "white"
         gear.style.color = "white"
     }
@@ -215,21 +215,21 @@ let bullFive = document.querySelector("#cir-five")
 let landing = document.querySelector(".landing")
 
 bullOne.addEventListener("click" , function () {
-landing.style.backgroundImage = "url(../images/home_bg.jpeg)"
+landing.style.backgroundImage = "url(images/home_bg.jpeg)"
 bullOne.classList.add("active")
 })
 bullTwo.addEventListener("click" , function () {
-landing.style.backgroundImage = "url(../images/home_bg4.jpg)"
+landing.style.backgroundImage = " url(images/home_bg4.jpg)"
 
 })
 bullThree.addEventListener("click" , function () {
-landing.style.backgroundImage = "url(../images/home_bg3.jpg)"
+landing.style.backgroundImage = " url(images/home_bg3.jpg)"
 })
 bullFour.addEventListener("click" , function () {
-landing.style.backgroundImage = "url(../images/home_bg5.jpg)"
+landing.style.backgroundImage = "url(images/home_bg5.jpg)"
 })
 bullFive.addEventListener("click" , function () {
-landing.style.backgroundImage = "url(../images/home_bg6.jpg)"
+landing.style.backgroundImage = "url(images/home_bg6.jpg)"
 })
 // bullTwo.addEventListener("click" , function () {
 //         imageTwo.style.display = "block"
@@ -401,127 +401,127 @@ let products =[
     {
         id : 1 ,
         title : 'Pepperoni Pizza' ,
-        img : '../images/pepproni.png',
+        img : 'images/pepproni.png',
         price : 20
     },
     {
         id : 2 ,
         title : 'Vegeterian Pizza' ,
-        img : '../images/vegi.png',
+        img : 'images/vegi.png',
         price : 12
     },
     {
         id : 3 ,
         title : ' Turkey Pizza' ,
-        img : '../images/smoketurkey.png',
+        img : 'images/smoketurkey.png',
         price : 18
     },
     {
         id : 4 ,
         title : 'Dubble Burger' ,
-        img : '../images/dubbleburger.png',
+        img : 'images/dubbleburger.png',
         price : 16
     },
     {
         id : 5 ,
         title : 'Classic Burger' ,
-        img : '../images/classic.png',
+        img : 'images/classic.png',
         price : 14
     },
     {
         id : 6 ,
         title : 'Chicken Nuggets' ,
-        img : '../images/chicken-nuggets.png',
+        img : 'images/chicken-nuggets.png',
         price : 14
     },
     {
         id : 7 ,
         title : 'Beef Lasagna' ,
-        img : '../images/Beef-Lasagna.png',
+        img : 'images/Beef-Lasagna.png',
         price : 20
     },
     {
         id : 8 ,
         title : 'Spaghetti Beef' ,
-        img : '../images/spagettibolognese.png',
+        img : 'images/spagettibolognese.png',
         price : 20
     },
     {
         id : 9 ,
         title : 'Chicken Alfrido' ,
-        img : '../images/chicken-alfrido.png',
+        img : 'images/chicken-alfrido.png',
         price : 20
     },
     {
         id : 10 ,
         title : 'Grilled Beef Plate' ,
-        img : '../images/Grilled beef.png',
+        img : 'images/Grilled beef.png',
         price : 25
     },
     {
         id : 11 ,
         title : 'Roast Beef Plate' ,
-        img : '../images/Roast Beef.png',
+        img : 'images/Roast Beef.png',
         price : 30
     },
     {
         id : 12 ,
         title : 'Picata Beef Plate' ,
-        img : '../images/Picata Beef.png',
+        img : 'images/Picata Beef.png',
         price : 28
     },
     {
         id : 13 ,
         title : 'Esspreco Double' ,
-        img : '../images/Esspreco double.png',
+        img : 'images/Esspreco double.png',
         price : 9
     },
     {
         id : 14 ,
         title : 'Cortado Classic' ,
-        img : '../images/cortado classic.png',
+        img : 'images/cortado classic.png',
         price : 11
     },
     {
         id : 15 ,
         title : 'Green Tea' ,
-        img : '../images/Green Tea.png',
+        img : 'images/Green Tea.png',
         price : 7
     },
     {
         id : 16 ,
         title : 'Lemome Juice' ,
-        img : '../images/Lemon Juice.png',
+        img : 'images/Lemon Juice.png',
         price : 13
     },
     {
         id : 17 ,
         title : 'Orange Juice' ,
-        img : '../images/Orange Juice.png',
+        img : 'images/Orange Juice.png',
         price : 14
     },
     {
         id : 18 ,
         title : 'Watermelon Juice' ,
-        img : '../images/Watermelon Juice.png',
+        img : 'images/Watermelon Juice.png',
         price : 15
     },
     {
         id : 19 ,
         title : 'Cookies' ,
-        img : '../images/cookies.png',
+        img : 'images/cookies.png',
         price : 11
     },
     {
         id : 20,
         title : 'Ice Cream Cono' ,
-        img : '../images/ice cream cono.png',
+        img : 'images/ice cream cono.png',
         price : 12
     },
     {
         id : 21 ,
         title : 'Donuts' ,
-        img : '../images/donuts.png',
+        img : 'images/donuts.png',
         price : 15
     },
 ]

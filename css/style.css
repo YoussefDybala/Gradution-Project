@@ -282,17 +282,10 @@ transition: 0.5s;
 
 /* End Shop Cart  */
 /* -----------------------------------------------Start Header--------------------------   */
-header {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    position: fixed;
-    z-index: 999999999999999999999999;
-    background-color: rgba(99, 99, 99, 0.3);
-    top: 0;
-  }
-  
+.header{
+  display: flex;
+  background-color: #eee;
+}
   .container .logo img {
     width: 80px;
     position: absolute;

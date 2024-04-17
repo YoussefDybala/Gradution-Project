@@ -283,24 +283,24 @@ bulletsThree.addEventListener("click" , function () {
     }
 })
 
-// Start Skills 
-let skills = document.querySelector(".Tests")
-window.onscroll = function () {
-    let skillsOffsetTop = skills.offsetTop
-    console.log(skillsOffsetTop);
-    let skillsOuterHeight = skills.offsetHeight
-    console.log(skillsOuterHeight);
-    let windowHeight = this.innerHeight 
-    console.log(windowHeight)
-    let windowScrollTop = this.pageYOffset
-    if (windowScrollTop > skillsOffsetTop + skillsOuterHeight -  windowHeight ) {
-        console.log("Reached")
-        let allskills = document.querySelectorAll(".skills .prog-holder .prog span")
-        allskills.forEach(skill => {
-            skill.style.width = skill.dataset.progress
-        })
-    }
-}
+// // Start Skills 
+// let skills = document.querySelector(".Tests")
+// window.onscroll = function () {
+//     let skillsOffsetTop = skills.offsetTop
+//     console.log(skillsOffsetTop);
+//     let skillsOuterHeight = skills.offsetHeight
+//     console.log(skillsOuterHeight);
+//     let windowHeight = this.innerHeight 
+//     console.log(windowHeight)
+//     let windowScrollTop = this.pageYOffset
+//     if (windowScrollTop > skillsOffsetTop + skillsOuterHeight -  windowHeight ) {
+//         console.log("Reached")
+//         let allskills = document.querySelectorAll(".skills .prog-holder .prog span")
+//         allskills.forEach(skill => {
+//             skill.style.width = skill.dataset.progress
+//         })
+//     }
+// }
 
 
 // End Skills
@@ -624,15 +624,15 @@ function addedToCart (id) {
 // }
 
 
-function delToCart (id) {
-let productsInCart = localStorage.getItem("productsInCart")
-if (productsInCart) {
-let items = JSON.parse(productsInCart)
-let filterdItem = items.filter((item) => item.id !== id )
-localStorage.setItem('productsInCart' , JSON.stringify(filterdItem))
-}
-drawProductsUI(filterdItem)
-}
+// function delToCart (id) {
+// let productsInCart = localStorage.getItem("productsInCart")
+// if (productsInCart) {
+// let items = JSON.parse(productsInCart)
+// let filterdItem = items.filter((item) => item.id !== id )
+// localStorage.setItem('productsInCart' , JSON.stringify(filterdItem))
+// }
+// drawProductsUI(filterdItem)
+// }
 
 // Start Contact US 
 let submit = document.querySelector(".btn-py")

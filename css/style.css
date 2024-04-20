@@ -552,6 +552,7 @@ header{
     font-size: 18px;
     border-radius: 5px;
     color: white;
+    transition: 0.3s;
   }
 
   .setting .option-box {
@@ -1301,6 +1302,7 @@ font-size: 15px;
     align-items: center;
     font-size: 24px;
     border-radius: 30px;
+    transition: 0.3s;
 }
 .catigories img {
     width: 200px;
@@ -1520,6 +1522,7 @@ padding: 5px 0;
 .our-skills {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
+  transition: 0.3s;
 }
 
 .our-skills .container {
@@ -1636,6 +1639,7 @@ padding: 5px 0;
     /* animation: progress 0.4s ease-in-out forwards; */
     animation: progress 0.5s forwards;
     opacity: 0;
+    transition: 0.3s;
   /* 
     عشان هنوزع النسبه الي فوقيها بال
     position: absolute 
@@ -1689,7 +1693,7 @@ display: none;
 .features .box {
   text-align: center;
   border: 5px solid var(--main-color);
-
+  transition: 0.3s;
 }
 
 .features .box .img-holder {
@@ -1883,12 +1887,14 @@ display: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 40px;
+  transition: 0.3s;
 }
 
 .footer .box h3 {
   color: var(--main-color);
   font-size: 47px;
   margin: 0 0 20px;
+  transition: 0.3s;
 }
 
 .footer .box .social {
@@ -1903,6 +1909,7 @@ display: none;
 
 .footer .box .social li {
   margin-right: 20px;
+  
 }
 
 .footer .box .social li a {
@@ -1916,6 +1923,7 @@ display: none;
   font-size: 30px;
   transition: var(--main-transition);
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .social .m2 {

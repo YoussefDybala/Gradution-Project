@@ -709,7 +709,9 @@ header{
     align-items: center;
     justify-content: space-between;
   }
-  
+  #about .main-title {
+    margin-top: 20px;
+  }
   .about-content p {
     box-shadow: -3px -2px 20px 2px;
     font-size: 24px;

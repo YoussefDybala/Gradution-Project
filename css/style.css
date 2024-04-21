@@ -1315,19 +1315,20 @@ font-size: 15px;
     font-weight: bold;
     text-align: center;
     padding: 10px 30px;
+    margin-top: -15px;
 }
 .catigories  .info {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 0px 30px;
 }
 .main-info .pr{
     font-size: 18px;
 }
 .main-info .dr{
-font-size: 30px;
+font-size: 25px;
 font-weight: bold;
-padding: 5px 0;
+
 }
 .catigories .add button {
     border: none;

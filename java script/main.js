@@ -553,7 +553,7 @@ function drawProductsUI () {
 }
 drawProductsUI ()
 
-
+let n = 100.544444
 let AddedItem = []
 let cartsProduct = document.querySelector(".carts-product")
 let Notfication = document.querySelector(".Notfi")
@@ -561,8 +561,10 @@ let value = document.querySelector(".value")
 let taxvalue = document.querySelector(".tax-val")
 let servicevalue = document.querySelector(".serv-val")
 let totalprice = 0
+let tax = 14/100
+let serv = 12/100
+totalprice.toFixed(5)
 function addedToCart (id) {
-
     let chooseItem = products.find((item) => item.id === id  )
     cartsProduct.innerHTML +=
     ` 
@@ -575,14 +577,15 @@ function addedToCart (id) {
     </div>
     `
     totalprice += +(`${chooseItem.price }`  )
-    value.textContent = totalprice + totalprice * 14/100 + totalprice * 12/100
+    let totalcash = totalprice + totalprice * tax + totalprice * serv
+    let all =  value.textContent = totalcash.toFixed(2)
+    Math.trunc(all)
+    console.log(Math.trunc(all));
+    
     taxvalue.textContent = totalprice * 14/100
     servicevalue.textContent = totalprice * 12/100
-
     AddedItem = [...AddedItem , chooseItem]
     localStorage.setItem('productsInCart' , JSON.stringify(AddedItem))
-
-
     let cartsProductt = document.querySelectorAll(".carts-product .cart-name")
     Notfication.style.display = "block"
     Notfication.innerHTML = cartsProductt.length

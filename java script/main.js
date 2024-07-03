@@ -558,6 +558,8 @@ let AddedItem = []
 let cartsProduct = document.querySelector(".carts-product")
 let Notfication = document.querySelector(".Notfi")
 let value = document.querySelector(".value")
+let taxvalue = document.querySelector(".tax-val")
+let servicevalue = document.querySelector(".serv-val")
 let totalprice = 0
 function addedToCart (id) {
 
@@ -572,9 +574,10 @@ function addedToCart (id) {
     </div>
     </div>
     `
-    totalprice += +(`${chooseItem.price}`  )
-    value.textContent = totalprice
-
+    totalprice += +(`${chooseItem.price }`  )
+    value.textContent = totalprice + totalprice * 14/100 + totalprice * 12/100
+    taxvalue.textContent = totalprice * 14/100
+    servicevalue.textContent = totalprice * 12/100
 
     AddedItem = [...AddedItem , chooseItem]
     localStorage.setItem('productsInCart' , JSON.stringify(AddedItem))

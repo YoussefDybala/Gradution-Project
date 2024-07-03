@@ -231,6 +231,8 @@ html {
     position: relative;
     top: -50px;
     padding-top: 85px;
+    display: flex;
+    justify-content: space-evenly;
 }
 .total::after {
     content: '';
@@ -238,12 +240,12 @@ html {
     width: 375px;
     height: 1px;
     background-color: #EEe;
-    top: 132px;
+    top: 111px;
     left: 16px;
 }
-.total .tot {
+/* .total .tot {
     padding: 20px 0;
-}
+} */
 .shop-cart .btn {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1304,6 +1306,7 @@ font-size: 15px;
     border-radius: 30px;
     transition: 0.3s;
 }
+
 .catigories img {
     width: 200px;
     height: 200px;

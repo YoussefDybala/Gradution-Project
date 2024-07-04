@@ -198,6 +198,13 @@ html {
     flex-direction: column;
     overflow: auto;
 }
+@media (max-width : 767px) {
+  .shop-cart {
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+  }
+}
 .show-cart {
     inset: 0 0 0 auto;
 }
@@ -235,13 +242,6 @@ html {
     justify-content: center;
     align-items: center;
   }
-  @media (max-width :767px){
-    .total {
-     position: relative;
-     top: -20px;
-  
-    }
-  }
   .to {
     margin-left: 25px;
     margin-right: 25px;
@@ -255,6 +255,18 @@ html {
     top: 111px;
     left: 16px;
 }
+  @media (max-width :767px){
+    .total {
+      position: relative;
+      top: -70px;
+      left: 10px;
+  }
+  .total::after {
+    width: 80%;
+    left: 30px;
+  }
+    }
+  
 /* .total .tot {
     padding: 20px 0;
 } */
@@ -263,6 +275,10 @@ html {
     grid-template-columns: repeat(2, 1fr);
     position: fixed;
     bottom: 0;
+    
+}
+@media (max-width : 767px) {
+  .shop-cart .btn {}
 }
 .shop-cart .btn .closer {
     background-color: #eee;
@@ -274,7 +290,9 @@ html {
     background-color:  var(--main-color);
     border: none;
     cursor: pointer;
-    width: 200px;
+    width: 215px;
+    margin-left: -13px;
+    margin-bottom: -6px;
 }
 .shop-cart {
 overflow: auto;
@@ -292,12 +310,12 @@ transition: 0.5s;
     position: absolute;
   }
   .sigle-product {
-    padding-bottom: 75px;
-  }
-  .total {
-    margin-top: -75px;
-  }
+    margin-left: -20px;
+    margin-bottom: 8px;
 }
+  }
+
+
  
 
 /* End Shop Cart  */

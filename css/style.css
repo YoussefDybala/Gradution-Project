@@ -216,7 +216,7 @@ html {
 
 .sigle-product  {
   display: grid;
-  grid-template-columns: 160px 119px 66px 1fr;
+  grid-template-columns: 120px 80px 66px 1fr;
   text-align: center;
   align-items: center;
   gap: 10px;
@@ -232,6 +232,20 @@ html {
     width: fit-content;
     color: rgb(255, 255, 255);
     background-color: transparent;
+}
+.remove-cart {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.remove-cart:hover {
+  background-color: var(--main-color);
+
 }
 .total {
   text-align: center;
@@ -306,7 +320,8 @@ transition: 0.5s;
   .sigle-product img {
     width: 70px;
     height: 70px;
-    margin-top: -40px;
+    margin-top: -30px;
+    margin-left: -30px;
     position: absolute;
   }
   .sigle-product {
@@ -713,10 +728,10 @@ header{
       right: 10px;
     }
   }
-  .landing .first-Bullets li .active {
+  .landing .first-Bullets li .activee {
           background-color:  var(--main-color);
           border-color:  var(--main-color);
-  }
+        }
   /* .landing .bullets li {
       width: 20px;s
       height: 20px;
@@ -725,10 +740,6 @@ header{
       margin-right: 10px;
   }
   
-  /* .landing .bullets li.active {
-      background-color: #FF8C00;
-      border-color: #FF8C00;
-  } */
    */
   
   /*-------------------------------------------- End landing---------------------------  */

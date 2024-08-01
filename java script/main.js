@@ -36,26 +36,6 @@ light.addEventListener('click' , function () {
     
 })
 
-// let dark = document.querySelector(".dark")
-// let light = document.querySelector(".light")
-// let body = document.querySelector("body")
-// let service = document.querySelector(".serv")
-// let title = document.querySelectorAll(".container .main-title")
-// dark.addEventListener('click' , function () {
-// light.style.display = "block"
-// body.style.backgroundColor = "black"
-// body.style.color = "white"
-// service.style.backgroundColor = "black"
-// body.style.transition = "0.3s"
-// })
-// light.addEventListener('click' , function () {
-// light.style.display = "none"
-// body.style.backgroundColor = "white"
-// body.style.color = "black"
-// service.style.backgroundColor = "#bcbc8e"
-// body.style.transition = "0.3s"
-// })
-
 
 // Start Setting Menu
 
@@ -149,31 +129,27 @@ kohly.addEventListener("click" , function () {
     // service.style.color = "white"
 })
 
-
+let bulletControl = document.querySelectorAll(".bullet-control div")
 let yes = document.querySelector(".yes")
 let no = document.querySelector(".no")
 let bullets = document.querySelector(".first-Bullets")
-console.log(bullets)
-yes.addEventListener("click" , function () {
-this.classList.add("active")
-no.classList.remove("active")
-bullets.style.display = "block"
+
+console.log(bulletControl);
+bulletControl.forEach((ele) => {
+    ele.onclick = function () {
+        bulletControl.forEach((ele) => {
+            ele.classList.remove("active")
+        })
+        this.classList.add("active")
+        if (ele === no) {
+            bullets.style.display = "none"
+        } else {
+            bullets.style.display = "block"
+        }
+    }
 })
-no.addEventListener("click" , function () {
-    this.classList.add("active")
-    yes.classList.remove("active")
-    bullets.style.display = "none"
-})
 
 
-
-
-// let colorLi = document.querySelectorAll("colors-list li ")
-// colorLi.forEach(li => {
-//     li.addEventListener("click" , function (e) {
-//         console.log(e.target.dataset.color)
-//     })
-// })
 
 // End Setting Menu
 
@@ -188,17 +164,18 @@ let closee= document.querySelector(".closer")
 
 iconCart.onclick = function () {
     shopCart.classList.add("show-cart")
+    document.onkeyup = function (e) {
+        if (e.key === "Escape"){
+            shopCart.classList.remove("show-cart")
+        }
+    }
 }
 
 closee.onclick = function () {
    shopCart.classList.remove("show-cart")
 }
 
-document.onkeyup = function (e) {
-    if (e.key === "Escape"){
-        shopCart.classList.remove("show-cart")
-    }
-}
+
 // End Shop Cart 
 
 ////////////////////////////////////////////////// End Header 
@@ -231,76 +208,29 @@ landing.style.backgroundImage = "url(images/home_bg5.jpg)"
 bullFive.addEventListener("click" , function () {
 landing.style.backgroundImage = "url(images/home_bg6.jpg)"
 })
-// bullTwo.addEventListener("click" , function () {
-//         imageTwo.style.display = "block"
-//         imageOne.style.display = "none"
-//         imageThree.style.display = "none"
-   
-// })
-// bullThree.addEventListener("click" , function () {
-//     if(imageThree.style.display = "block") {
-//         imageOne.style.display = "none"
-//         imageTwo.style.display = "none"
-//     }
-// })
 ////////////////////////////////////////////////// End Lading 
 
 ////////////////////////////////////////////////// Start Skills
-let mainContentOne = document.querySelector(".main-content1")
-let mainContentTwo = document.querySelector(".main-content2")
-let mainContentThree = document.querySelector(".main-content3")
-let bulletsOne = document.querySelector(".bullOne")
-let bulletsTwo = document.querySelector(".bullTwo")
-let bulletsThree = document.querySelector(".bullThree")
-
-bulletsOne.addEventListener("click" , function () {
-    if (mainContentOne.style.display = "block") {
-        mainContentTwo.style.display = "none"
-        mainContentThree.style.display = "none"
-        bulletsOne.classList.add("active")
-        bulletsTwo.classList.remove("active")
-        bulletsThree.classList.remove("active")
+let bulletsSkills = document.querySelectorAll(".bullets li")
+let allContent = document.querySelectorAll(".all-content .M1")
+console.log(allContent);
+console.log(bulletsSkills);
+bulletsSkills.forEach((ele) => {
+    ele.onclick = function () {
+        bulletsSkills.forEach((ele) => {
+            ele.classList.remove("active")
+        })
+        this.classList.add("active")
     }
+    ele.addEventListener("click" , function () {
+        allContent.forEach((ele) => {
+            ele.style.display = "none"
+        })
+        document.querySelectorAll(this.dataset.work).forEach((ele) => {
+            ele.style.display = "block"
+        })
+    })
 })
-
-bulletsTwo.addEventListener("click" , function () {
-    if (mainContentTwo.style.display = "block") {
-        mainContentOne.style.display = "none"
-        mainContentThree.style.display = "none"
-        bulletsOne.classList.remove("active")
-        bulletsTwo.classList.add("active")
-        bulletsThree.classList.remove("active")
-    }
-})
-
-bulletsThree.addEventListener("click" , function () {
-    if (mainContentThree.style.display = "block") {
-        mainContentOne.style.display = "none"
-        mainContentTwo.style.display = "none"
-        bulletsOne.classList.remove("active")
-        bulletsTwo.classList.remove("active")
-        bulletsThree.classList.add("active")
-    }
-})
-
-// // Start Skills 
-// let skills = document.querySelector(".Tests")
-// window.onscroll = function () {
-//     let skillsOffsetTop = skills.offsetTop
-//     console.log(skillsOffsetTop);
-//     let skillsOuterHeight = skills.offsetHeight
-//     console.log(skillsOuterHeight);
-//     let windowHeight = this.innerHeight 
-//     console.log(windowHeight)
-//     let windowScrollTop = this.pageYOffset
-//     if (windowScrollTop > skillsOffsetTop + skillsOuterHeight -  windowHeight ) {
-//         console.log("Reached")
-//         let allskills = document.querySelectorAll(".skills .prog-holder .prog span")
-//         allskills.forEach(skill => {
-//             skill.style.width = skill.dataset.progress
-//         })
-//     }
-// }
 
 
 // End Skills
@@ -326,75 +256,6 @@ span.onclick = function () {
     behavior:"smooth"
     })
 }
-
-
-// let el = document.querySelector(".scroller")
-// let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-// // console.log(document.documentElement.scrollHeight)
-// // console.log(document.documentElement.clientHeight)
-// window.addEventListener("scroll" , function (){
-//     let scrolltop = document.documentElement.scrollTop
-//     // console.log(scrolltop)
-//     el.style.width = `${(scrolltop / height) *100}%`
-// })
-
-
-// let shuffles = document.querySelectorAll(".shuffle p")
-// let category = document.querySelectorAll(".category .all")
-
-// shuffles.forEach((p) => {
-//     p.addEventListener("click" , removeActive)
-//     p.addEventListener("click" , manageCategory)
-// })
-
-// //Remove Active Class
-// function removeActive(){
-//     shuffles.forEach((p) => {
-//         p.classList.remove("active")
-//         this.classList.add("active")
-//     })
-// }
-
-// //Manage Catgory
-// function manageCategory() {
-//     category.forEach((img) => {
-//         img.style.display ="none"
-//     })
-//     document.querySelectorAll(this.dataset.cat).forEach((el) => {
-//         el.style.display = "block"
-        
-//     })
-// }
-
-
-// let shuffle = document.querySelectorAll(".shuffles li")
-// let categorys = document.querySelectorAll(".category .alls")
-
-// shuffle.forEach((li) => {
-//     li.addEventListener("click" , removeactive)
-//     li.addEventListener("click" , managecategory)
-// })
-
-// //Remove Active Class
-// function removeactive(){
-//     shuffle.forEach((li) => {
-//         li.classList.remove("active")
-//         this.classList.add("active")
-//     })
-// }
-
-// //Manage Catgory
-// function managecategory() {
-//     categorys.forEach((imgs) => {
-//         imgs.style.display ="none"
-//     })
-//     document.querySelectorAll(this.dataset.on).forEach((elm) => {
-//         elm.style.display = "block"
-//     })
-// }
-
-
-
 
 
 let products =[ 
@@ -572,16 +433,13 @@ function addedToCart (id) {
     <div class="cart-img"><img src="${chooseItem.img}" alt=""></div>
     <div class="cart-name">${chooseItem.title}</div>
     <div class="cart-price">${chooseItem.price}</div>
-    <div class="remove">
-    </div>
+    <div class="remove-cart" onclick="removeC()">Remove</div>
     </div>
     `
     totalprice += +(`${chooseItem.price }`  )
     let totalcash = totalprice + totalprice * tax + totalprice * serv
     let all =  value.textContent = totalcash.toFixed(2)
     Math.trunc(all)
-    console.log(Math.trunc(all));
-    
     taxvalue.textContent = totalprice * 14/100
     servicevalue.textContent = totalprice * 12/100
     AddedItem = [...AddedItem , chooseItem]
@@ -591,6 +449,19 @@ function addedToCart (id) {
     Notfication.innerHTML = cartsProductt.length
     window.alert(`${chooseItem.title} Added Sucsesfully`)
 }
+
+function removeC() {
+    let product = document.querySelector(".sigle-product") 
+    product.remove()
+    let cartsProductt = document.querySelectorAll(".carts-product .cart-name")
+    Notfication.innerHTML = cartsProductt.length
+    
+}
+
+
+// Ensure the function runs after the DOM is fully loaded
+
+
 // function displayCart() {
 //     // Clear the existing content in the cart
 //     cartsProduct.innerHTML = '';

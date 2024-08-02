@@ -436,12 +436,17 @@ function addedToCart (id) {
     <div class="remove-cart" onclick="removeC()">Remove</div>
     </div>
     `
-    totalprice += +(`${chooseItem.price }`  )
-    let totalcash = totalprice + totalprice * tax + totalprice * serv
-    let all =  value.textContent = totalcash.toFixed(2)
-    Math.trunc(all)
-    taxvalue.textContent = totalprice * 14/100
-    servicevalue.textContent = totalprice * 12/100
+    totalprice += +(`${chooseItem.price}`  )
+    value.textContent = totalprice
+
+    
+    // totalprice += +(`${chooseItem.price}`  )
+    // // value.textContent = totalprice
+    // let totalcash = totalprice + totalprice * tax + totalprice * serv
+    // let all =  value.textContent = totalcash.toFixed(2)
+    // // Math.trunc(all)
+    // taxvalue.textContent = totalprice * 14/100
+    // servicevalue.textContent = totalprice * 12/100
     AddedItem = [...AddedItem , chooseItem]
     localStorage.setItem('productsInCart' , JSON.stringify(AddedItem))
     let cartsProductt = document.querySelectorAll(".carts-product .cart-name")
@@ -450,14 +455,22 @@ function addedToCart (id) {
     window.alert(`${chooseItem.title} Added Sucsesfully`)
 }
 
-function removeC() {
+function removeC(id) {
     let product = document.querySelector(".sigle-product") 
     product.remove()
     let cartsProductt = document.querySelectorAll(".carts-product .cart-name")
     Notfication.innerHTML = cartsProductt.length
-    
-}
 
+    if (cartsProductt.length !== 0) {
+        let price = document.querySelector(".cart-price").textContent
+        totalprice -= (`${price}`);
+        value.textContent = totalprice
+        
+    }
+        // if (cartsProductt.length === 0) {
+        //     value.textContent = 0
+        // }
+}
 
 // Ensure the function runs after the DOM is fully loaded
 

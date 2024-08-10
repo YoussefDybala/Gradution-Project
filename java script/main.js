@@ -425,6 +425,9 @@ let totalprice = 0
 let tax = 14/100
 let serv = 12/100
 totalprice.toFixed(5)
+
+
+
 function addedToCart (id) {
     let chooseItem = products.find((item) => item.id === id  )
     cartsProduct.innerHTML +=
@@ -433,20 +436,22 @@ function addedToCart (id) {
     <div class="cart-img"><img src="${chooseItem.img}" alt=""></div>
     <div class="cart-name">${chooseItem.title}</div>
     <div class="cart-price">${chooseItem.price}</div>
-    <div class="remove-cart" onclick="removeC()">Remove</div>
+    <div class="remove-cart" onclick="removeC(${chooseItem.id})">Remove</div>
     </div>
     `
-    totalprice += +(`${chooseItem.price}`  )
-    value.textContent = totalprice
+    // let price = document.querySelector(".cart-price").textContent
+    // totalprice += +(`${price}`);
+    // value.textContent = totalprice
 
     
-    // totalprice += +(`${chooseItem.price}`  )
-    // // value.textContent = totalprice
+    totalprice += +(`${chooseItem.price}`)
+
+    let totalcash = totalprice 
+    let all =  value.textContent = totalcash.toFixed(0)
     // let totalcash = totalprice + totalprice * tax + totalprice * serv
-    // let all =  value.textContent = totalcash.toFixed(2)
-    // // Math.trunc(all)
     // taxvalue.textContent = totalprice * 14/100
     // servicevalue.textContent = totalprice * 12/100
+    Math.trunc(all)
     AddedItem = [...AddedItem , chooseItem]
     localStorage.setItem('productsInCart' , JSON.stringify(AddedItem))
     let cartsProductt = document.querySelectorAll(".carts-product .cart-name")
@@ -456,22 +461,25 @@ function addedToCart (id) {
 }
 
 function removeC(id) {
-    let product = document.querySelector(".sigle-product") 
+    let product = document.getElementById("product-" + id)
+    let targetDiv = document.getElementById("product-" + id).getElementsByClassName("cart-price")[0].innerHTML
     product.remove()
     let cartsProductt = document.querySelectorAll(".carts-product .cart-name")
     Notfication.innerHTML = cartsProductt.length
-
-    if (cartsProductt.length !== 0) {
-        let price = document.querySelector(".cart-price").textContent
-        totalprice -= (`${price}`);
-        value.textContent = totalprice
+    if (targetDiv) {
+        let price = parseFloat(targetDiv) || 0; // Convert to number
+        totalprice -= price ;
+        let value = document.querySelector(".value"); // Ensure 'value' element exists
+        if (value) {
+            value.textContent = totalprice
+            // value.textContent = totalprice + totalprice * tax + totalprice * serv;
+            
+        }
         
-    }
-        // if (cartsProductt.length === 0) {
-        //     value.textContent = 0
-        // }
+        
+        
 }
-
+}
 // Ensure the function runs after the DOM is fully loaded
 
 

@@ -263,127 +263,148 @@ let products =[
         id : 1 ,
         title : 'Pepperoni Pizza' ,
         img : 'images/pepproni.png',
-        price : 20
+        price : 20 
+        , catgeory : "pizza" 
     },
     {
         id : 2 ,
         title : 'Vegeterian Pizza' ,
         img : 'images/vegi.png',
         price : 12
+        , catgeory : "pasta"
     },
     {
         id : 3 ,
         title : ' Turkey Pizza' ,
         img : 'images/smoketurkey.png',
         price : 18
+        , catgeory : "pasta"
     },
     {
         id : 4 ,
         title : 'Dubble Burger' ,
         img : 'images/dubbleburger.png',
         price : 16
+        , catgeory : "burger"
     },
     {
         id : 5 ,
         title : 'Classic Burger' ,
         img : 'images/classic.png',
-        price : 14
+        price : 14 
+         , catgeory : "burger"
     },
     {
         id : 6 ,
         title : 'Chicken Nuggets' ,
         img : 'images/chicken-nuggets.png',
         price : 14
+         , catgeory : "burger"
     },
     {
         id : 7 ,
         title : 'Beef Lasagna' ,
         img : 'images/Beef-Lasagna.png',
         price : 20
+         , catgeory : "pasta"
     },
     {
         id : 8 ,
         title : 'Spaghetti Beef' ,
         img : 'images/spagettibolognese.png',
         price : 20
+          , catgeory : "pasta"
     },
     {
         id : 9 ,
         title : 'Chicken Alfrido' ,
         img : 'images/chicken-alfrido.png',
         price : 20
+          , catgeory : "pasta"
     },
     {
         id : 10 ,
         title : 'Grilled Beef Plate' ,
         img : 'images/Grilled beef.png',
         price : 25
+          , catgeory : "plate"
     },
     {
         id : 11 ,
         title : 'Roast Beef Plate' ,
         img : 'images/Roast Beef.png',
-        price : 30
+        price : 30 
+            , catgeory : "plate"
     },
     {
         id : 12 ,
         title : 'Picata Beef Plate' ,
         img : 'images/Picata Beef.png',
         price : 28
+           , catgeory : "plate"
     },
     {
         id : 13 ,
         title : 'Esspreco Double' ,
         img : 'images/Esspreco double.png',
         price : 9
+           , catgeory : "coffe"
     },
     {
         id : 14 ,
         title : 'Cortado Classic' ,
         img : 'images/cortado classic.png',
         price : 11
+         , catgeory : "coffe"
     },
     {
         id : 15 ,
         title : 'Green Tea' ,
         img : 'images/Green Tea.png',
         price : 7
+         , catgeory : "coffe"
     },
     {
         id : 16 ,
         title : 'Lemome Juice' ,
         img : 'images/Lemon Juice.png',
         price : 13
+         , catgeory : "juice"
     },
     {
         id : 17 ,
         title : 'Orange Juice' ,
         img : 'images/Orange Juice.png',
         price : 14
+        , catgeory : "juice"
     },
     {
         id : 18 ,
         title : 'Watermelon Juice' ,
         img : 'images/Watermelon Juice.png',
         price : 15
+        , catgeory : "juice"
     },
     {
         id : 19 ,
         title : 'Cookies' ,
         img : 'images/cookies.png',
         price : 11
+        , catgeory : "dessert"
     },
     {
         id : 20,
         title : 'Ice Cream Cono' ,
         img : 'images/ice cream cono.png',
-        price : 12
+        price : 12 
+       , catgeory : "dessert"
     },
     {
         id : 21 ,
         title : 'Donuts' ,
         img : 'images/donuts.png',
         price : 15
+        , catgeory : "dessert"
     },
 ]
 
@@ -395,9 +416,11 @@ let categories = document.querySelector(".catigories")
 function drawProductsUI () {
     let productsUI = products.map((item) => {
         return `
-        <div class="products">
+        <div class="products" >
             <div class="photo"><img src="${item.img}" alt=""></div>
             <div class="product-name">${item.title}</div>
+             <div class="product-name" data-category="${item.catgeory}"></div>
+            
             <div class="info">
                 <div class="main-info">
                     <div class="pr">Price</div>
@@ -413,6 +436,21 @@ function drawProductsUI () {
     categories.innerHTML = productsUI
 }
 drawProductsUI ()
+
+// let mainProduct = document.querySelectorAll(".catigories .products")
+// let filterCate = document.querySelectorAll(".all-cate li")
+// filterCate.forEach((ele) => {
+// ele.addEventListener("click" , function () {
+//     mainProduct.forEach((ele) => {
+//         ele.style.display = "none"
+//     })
+//     document.querySelectorAll(this.dataset.catgeory).forEach((item) => {
+//         ele.style.display = "block"
+//     })
+       
+  
+// })
+// })
 
 let n = 100.544444
 let AddedItem = []
@@ -439,18 +477,11 @@ function addedToCart (id) {
     <div class="remove-cart" onclick="removeC(${chooseItem.id})">Remove</div>
     </div>
     `
-    // let price = document.querySelector(".cart-price").textContent
-    // totalprice += +(`${price}`);
-    // value.textContent = totalprice
-
-    
     totalprice += +(`${chooseItem.price}`)
-
-    let totalcash = totalprice 
-    let all =  value.textContent = totalcash.toFixed(0)
-    // let totalcash = totalprice + totalprice * tax + totalprice * serv
-    // taxvalue.textContent = totalprice * 14/100
-    // servicevalue.textContent = totalprice * 12/100
+    let totalcash = totalprice + totalprice * tax + totalprice * serv
+    let all =  value.textContent = totalcash.toFixed(2)
+    taxvalue.textContent = totalprice * 14/100 
+    servicevalue.textContent = totalprice * 12/100 
     Math.trunc(all)
     AddedItem = [...AddedItem , chooseItem]
     localStorage.setItem('productsInCart' , JSON.stringify(AddedItem))
@@ -469,9 +500,12 @@ function removeC(id) {
     if (targetDiv) {
         let price = parseFloat(targetDiv) || 0; // Convert to number
         totalprice -= price ;
+        taxvalue.textContent = totalprice * 14/100 
+        servicevalue.textContent = totalprice * 12/100 
         let value = document.querySelector(".value"); // Ensure 'value' element exists
         if (value) {
-            value.textContent = totalprice
+            let totalcash = totalprice + totalprice * tax + totalprice * serv
+            let all =  value.textContent = totalcash.toFixed(2)
             // value.textContent = totalprice + totalprice * tax + totalprice * serv;
             
         }

@@ -1253,7 +1253,28 @@ font-size: 15px;
 }
     /* End Events */
     /* Start Product  */
-
+    .filter-cate ul  {
+      display: flex;  
+      text-align: center; 
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+     }
+    .filter-cate ul li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+     font-size: 22px;
+     font-weight: bold;
+     background-color: green;
+     padding: 8px;
+     border-radius: 8px;
+     color: white;
+     transition: 0.4s;
+     cursor: pointer;
+     }
+     .filter-cate ul li:hover {
+      background-color: var(--main-color);
+     }
     .product {
         font-size: 30px;
         font-weight: bold;

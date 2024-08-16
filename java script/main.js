@@ -210,13 +210,31 @@ landing.style.backgroundImage = "url(images/home_bg6.jpg)"
 })
 ////////////////////////////////////////////////// End Lading 
 
-///////////////////////////// start event
+///////////////////////////// start serv
 let servic = document.querySelectorAll(".serv .ser")
 let options = {
     root: null ,
-    threshold: 0
+    threshold:0 ,
+  
+   
 }
-let observer = new IntersectionObserver((entries) =>  {
+let serviceObserver = new IntersectionObserver((entries) =>  {
+    entries.forEach((ele) => {
+        ele.target.classList.toggle("slide" , ele.isIntersecting)
+        // if(ele.isIntersecting) {
+        //     serviceObserver.unobserve(ele.target)
+        // }
+    })
+    
+}, options)
+
+servic.forEach((ele) => {
+    serviceObserver.observe(ele)
+})
+//////////////////////////// end serv
+///////////////////////////// start event
+let events = document.querySelectorAll(".event .even")
+let eventObserver = new IntersectionObserver((entries) =>  {
     entries.forEach((ele) => {
         ele.target.classList.toggle("slide" , ele.isIntersecting)
        
@@ -224,10 +242,10 @@ let observer = new IntersectionObserver((entries) =>  {
     
 }, options)
 
-servic.forEach((ele) => {
-    observer.observe(ele)
+events.forEach((ele) => {
+    eventObserver.observe(ele)
 })
-//////////////////////////// end event
+//////////////////////////// end serv
 
 ////////////////////////////////////////////////// Start Skills
 let bulletsSkills = document.querySelectorAll(".bullets li")
@@ -454,19 +472,25 @@ function drawProductsUI () {
     })
     categories.innerHTML = productsUI
 }
-let mainProduct = document.querySelectorAll(".catigories .products")
-let productObserver = new IntersectionObserver((entries) =>  {
-console.log(entries);
-
+drawProductsUI ()
+let allProducts = document.querySelectorAll(".catigories .products")
+let productsObserver = new IntersectionObserver((entries) =>  {
+    console.log(entries);
+    
+    entries.forEach((ele) => {
+        ele.target.classList.toggle("slide" , ele.isIntersecting)
+       
+    })
+    
 }, options)
 
-
-mainProduct.forEach((ele) => {
-    observer.observe(ele)
+allProducts.forEach((ele) => {
+    productsObserver.observe(ele)
 })
 
 
-drawProductsUI ()
+
+
 
 // let mainProduct = document.querySelectorAll(".catigories .products")
 // let filterCate = document.querySelectorAll(".all-cate li")

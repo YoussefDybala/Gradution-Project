@@ -103,6 +103,20 @@ html {
   .slide {
     animation: slide 1.5s ease-in-out;
   }
+  hr {
+    
+    left: 0;
+    color: red;
+    width: 100vw;
+    height: 100px;
+    z-index: 1111111111111;
+  }
+  hr.top {
+width: 150px;
+  }
+  hr.bottom {
+width: 200px;
+  }
   .container {
     padding-left: 15px;
     padding-right: 15px;
@@ -2175,11 +2189,11 @@ display: none;
 
 @keyframes slide {
   from {
-    transform: translateX(-200px);
+    transform: translateY(200px);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }

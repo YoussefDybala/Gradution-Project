@@ -218,6 +218,7 @@ const servic = document.querySelectorAll(".serv .ser");
 const options = {
     root: null,
     threshold: 0,
+    
 };
 
 // Keep track of the number of elements being observed

@@ -210,6 +210,25 @@ landing.style.backgroundImage = "url(images/home_bg6.jpg)"
 })
 ////////////////////////////////////////////////// End Lading 
 
+///////////////////////////// start event
+let servic = document.querySelectorAll(".serv .ser")
+let options = {
+    root: null ,
+    threshold: 0
+}
+let observer = new IntersectionObserver((entries) =>  {
+    entries.forEach((ele) => {
+        ele.target.classList.toggle("slide" , ele.isIntersecting)
+       
+    })
+    
+}, options)
+
+servic.forEach((ele) => {
+    observer.observe(ele)
+})
+//////////////////////////// end event
+
 ////////////////////////////////////////////////// Start Skills
 let bulletsSkills = document.querySelectorAll(".bullets li")
 let allContent = document.querySelectorAll(".all-content .M1")
@@ -419,7 +438,7 @@ function drawProductsUI () {
         <div class="products" >
             <div class="photo"><img src="${item.img}" alt=""></div>
             <div class="product-name">${item.title}</div>
-             <div class="product-name" data-category="${item.catgeory}"></div>
+             <div class="product-cate" data-category="${item.catgeory}"></div>
             
             <div class="info">
                 <div class="main-info">
@@ -435,6 +454,18 @@ function drawProductsUI () {
     })
     categories.innerHTML = productsUI
 }
+let mainProduct = document.querySelectorAll(".catigories .products")
+let productObserver = new IntersectionObserver((entries) =>  {
+console.log(entries);
+
+}, options)
+
+
+mainProduct.forEach((ele) => {
+    observer.observe(ele)
+})
+
+
 drawProductsUI ()
 
 // let mainProduct = document.querySelectorAll(".catigories .products")

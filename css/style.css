@@ -100,6 +100,9 @@ html {
     text-decoration: none;
   }
   
+  .slide {
+    animation: slide 1s ease;
+  }
   .container {
     padding-left: 15px;
     padding-right: 15px;
@@ -598,7 +601,8 @@ header{
     cursor: pointer;
     padding: 8px 0;
     font-size: 18px;
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     color: white;
     transition: 0.3s;
   }
@@ -758,12 +762,12 @@ header{
     margin-top: 20px;
   }
   .about-content p {
-    box-shadow: -3px -2px 20px 2px;
+    box-shadow: 0px 1px 14px 0px;
     font-size: 24px;
     line-height: 1.5;
     margin-right: 20px;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 5px;
   }
   
 .about-content  .btn {
@@ -880,6 +884,9 @@ header{
         /* color: #000000b5 ;
         background-color: #bcbc8e; */
     }
+     .serv .ser {
+      
+     }
     .serv .main-serv {
       position: relative;
         margin: 10px auto;
@@ -894,6 +901,7 @@ header{
         border-radius: 12px;
         /* animation: border 0.9s linear forwards; */
     }
+   
     .serv .main-serv::after {
       content: '';
       position: absolute;
@@ -904,9 +912,22 @@ header{
       border-radius: 12px;
       background-color: var(--main-color);
     }
+    .serv .main-serv:hover {
+      color: white;
+    }
+    .serv .main-serv2:hover {
+      color: white;
+    }
+    .serv .main-serv3:hover {
+      color: white;
+    }
+    .serv .main-serv4:hover {
+      color: white;
+    }
     .serv .main-serv:hover::after {
       z-index: -1;
       animation: lefttmove 0.3s linear forwards;
+      
     }
     @keyframes lefttmove {
       100% {
@@ -1074,7 +1095,7 @@ header{
         z-index: -1;
         animation: right-move 0.5s linear forwards;
     }
-    .even{
+    .event{
         display: flex;
         flex-wrap: wrap;
         text-align: center;
@@ -1368,6 +1389,7 @@ font-size: 15px;
     font-size: 24px;
     border-radius: 30px;
     transition: 0.3s;
+    
 }
 
 .catigories img {
@@ -1413,6 +1435,7 @@ font-weight: bold;
     color: white;
     border: 1px solid var(--main-color) ;
 }
+
 /* End Product */
 
 
@@ -2150,4 +2173,14 @@ display: none;
   }
 }
 
+@keyframes slide {
+  from {
+    transform: translateY(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 /*------------------------------------- End Animation---------------------------- */

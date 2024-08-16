@@ -101,7 +101,7 @@ html {
   }
   
   .slide {
-    animation: slide 1s ease-in-out;
+    animation: slide 1.5s ease-in-out;
   }
   .container {
     padding-left: 15px;
@@ -2175,7 +2175,7 @@ display: none;
 
 @keyframes slide {
   from {
-    transform: translateX(-300px);
+    transform: translateX(-200px);
     opacity: 0;
   }
   to {

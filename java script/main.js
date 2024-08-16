@@ -211,40 +211,70 @@ landing.style.backgroundImage = "url(images/home_bg6.jpg)"
 ////////////////////////////////////////////////// End Lading 
 
 ///////////////////////////// start serv
-let servic = document.querySelectorAll(".serv .ser")
-let options = {
-    root: null ,
-    threshold:0 ,
-  
-   
-}
-let serviceObserver = new IntersectionObserver((entries) =>  {
-    entries.forEach((ele) => {
-        ele.target.classList.toggle("slide" , ele.isIntersecting)
-        // if(ele.isIntersecting) {
-        //     serviceObserver.unobserve(ele.target)
-        // }
-    })
-    
-}, options)
+// Select all elements with the class 'ser' within elements with class 'serv'
+const servic = document.querySelectorAll(".serv .ser");
 
-servic.forEach((ele) => {
-    serviceObserver.observe(ele)
-})
+// IntersectionObserver options
+const options = {
+    root: null,
+    threshold: 0,
+};
+
+// Keep track of the number of elements being observed
+let observedCount = services.length;
+
+// IntersectionObserver callback
+const serviceObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Toggle the 'slide' class based on the element's intersection status
+        if (entry.isIntersecting) {
+            entry.target.classList.add("slide");
+            // Unobserve the element once it's intersected
+            serviceObserver.unobserve(entry.target);
+            observedCount--;
+
+            // Disconnect the observer if no more elements are left to observe
+            if (observedCount === 0) {
+                serviceObserver.disconnect();
+            }
+        } else {
+            entry.target.classList.remove("slide");
+        }
+    });
+}, options);
+
+// Observe each element
+servic.forEach((element) => {
+    serviceObserver.observe(element);
+});
 //////////////////////////// end serv
 ///////////////////////////// start event
-let events = document.querySelectorAll(".event .even")
-let eventObserver = new IntersectionObserver((entries) =>  {
-    entries.forEach((ele) => {
-        ele.target.classList.toggle("slide" , ele.isIntersecting)
-       
-    })
-    
-}, options)
+// Select all elements with the class 'ser' within elements with class 'serv'
+const events = document.querySelectorAll(".event .even");
+// IntersectionObserver callback
+const eventObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Toggle the 'slide' class based on the element's intersection status
+        if (entry.isIntersecting) {
+            entry.target.classList.add("slide");
+            // Unobserve the element once it's intersected
+            eventObserver.unobserve(entry.target);
+            observedCount--;
 
-events.forEach((ele) => {
-    eventObserver.observe(ele)
-})
+            // Disconnect the observer if no more elements are left to observe
+            if (observedCount === 0) {
+                eventObserver.disconnect();
+            }
+        } else {
+            entry.target.classList.remove("slide");
+        }
+    });
+}, options);
+
+// Observe each element
+events.forEach((element) => {
+    eventObserver.observe(element);
+});
 //////////////////////////// end serv
 
 ////////////////////////////////////////////////// Start Skills
@@ -474,19 +504,30 @@ function drawProductsUI () {
 }
 drawProductsUI ()
 let allProducts = document.querySelectorAll(".catigories .products")
-let productsObserver = new IntersectionObserver((entries) =>  {
-    console.log(entries);
-    
-    entries.forEach((ele) => {
-        ele.target.classList.toggle("slide" , ele.isIntersecting)
-       
-    })
-    
-}, options)
+// IntersectionObserver callback
+const productObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Toggle the 'slide' class based on the element's intersection status
+        if (entry.isIntersecting) {
+            entry.target.classList.add("slide");
+            // Unobserve the element once it's intersected
+            productObserver.unobserve(entry.target);
+            observedCount--;
 
-allProducts.forEach((ele) => {
-    productsObserver.observe(ele)
-})
+            // Disconnect the observer if no more elements are left to observe
+            if (observedCount === 0) {
+                productObserver.disconnect();
+            }
+        } else {
+            entry.target.classList.remove("slide");
+        }
+    });
+}, options);
+
+// Observe each element
+allProducts.forEach((element) => {
+    productObserver.observe(element);
+});
 
 
 

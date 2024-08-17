@@ -36,8 +36,24 @@ light.addEventListener('click' , function () {
     
 })
 
+let span = document.querySelector(".up")
+window.onscroll = function () {
+    // console.log(scrollY)
+    if (this.scrollY >= 1000) {
+        span.classList.add("show")
+    }else {
+        span.classList.remove("show")
+    }
+}
+span.onclick = function () {
+    window.scrollTo({
+    top:0,
+    behavior:"smooth"
+    })
+}
 
-// Start Setting Menu
+
+//////////////////////////////////// Start Setting Menu
 
 let setting = document.querySelector(".setting")
 let closeee = document.querySelector(".close")
@@ -151,7 +167,7 @@ bulletControl.forEach((ele) => {
 
 
 
-// End Setting Menu
+////////////////////////////////////////// End Setting Menu
 
 
 
@@ -208,9 +224,12 @@ landing.style.backgroundImage = "url(images/home_bg5.jpg)"
 bullFive.addEventListener("click" , function () {
 landing.style.backgroundImage = "url(images/home_bg6.jpg)"
 })
+
+
 ////////////////////////////////////////////////// End Lading 
 
-///////////////////////////// start serv
+/////////////////////////////////////// start serv
+
 // Select all elements with the class 'ser' within elements with class 'serv'
 const servic = document.querySelectorAll(".serv .ser");
 
@@ -248,7 +267,8 @@ const serviceObserver = new IntersectionObserver((entries) => {
 servic.forEach((element) => {
     serviceObserver.observe(element);
 });
-//////////////////////////// end serv
+////////////////////////////////////////// end serv
+
 ///////////////////////////// start event
 // Select all elements with the class 'ser' within elements with class 'serv'
 const events = document.querySelectorAll(".event .even");
@@ -276,55 +296,11 @@ const eventObserver = new IntersectionObserver((entries) => {
 events.forEach((element) => {
     eventObserver.observe(element);
 });
-//////////////////////////// end serv
-
-////////////////////////////////////////////////// Start Skills
-let bulletsSkills = document.querySelectorAll(".bullets li")
-let allContent = document.querySelectorAll(".all-content .M1")
-console.log(allContent);
-console.log(bulletsSkills);
-bulletsSkills.forEach((ele) => {
-    ele.onclick = function () {
-        bulletsSkills.forEach((ele) => {
-            ele.classList.remove("active")
-        })
-        this.classList.add("active")
-    }
-    ele.addEventListener("click" , function () {
-        allContent.forEach((ele) => {
-            ele.style.display = "none"
-        })
-        document.querySelectorAll(this.dataset.work).forEach((ele) => {
-            ele.style.display = "block"
-        })
-    })
-})
-
-
-// End Skills
+/////////////////////////////////////////////// end serv
 
 
 
-
-
-////////////////////////////////////////////////// End  Skills
-
-let span = document.querySelector(".up")
-window.onscroll = function () {
-    // console.log(scrollY)
-    if (this.scrollY >= 1000) {
-        span.classList.add("show")
-    }else {
-        span.classList.remove("show")
-    }
-}
-span.onclick = function () {
-    window.scrollTo({
-    top:0,
-    behavior:"smooth"
-    })
-}
-
+////////////////////////////////////////////////// start product
 
 let products =[ 
     {
@@ -504,6 +480,8 @@ function drawProductsUI () {
     categories.innerHTML = productsUI
 }
 drawProductsUI ()
+
+
 let allProducts = document.querySelectorAll(".catigories .products")
 // IntersectionObserver callback
 const productObserver = new IntersectionObserver((entries) => {
@@ -611,6 +589,12 @@ function removeC(id) {
         
 }
 }
+
+////////////////////////////////////////////////// end product
+
+
+
+
 // Ensure the function runs after the DOM is fully loaded
 
 
@@ -663,11 +647,165 @@ function removeC(id) {
 // drawProductsUI(filterdItem)
 // }
 
-// Start Contact US 
+//////////////////////////////// start daytime
+
+let mainDayTime = document.querySelectorAll(".daytime-items .daytime-item") 
+const dayTimeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Toggle the 'slide' class based on the element's intersection status
+        if (entry.isIntersecting) {
+            entry.target.classList.add("slide");
+            // Unobserve the element once it's intersected
+            dayTimeObserver.unobserve(entry.target);
+            observedCount--;
+
+            // Disconnect the observer if no more elements are left to observe
+            if (observedCount === 0) {
+                dayTimeObserver.disconnect();
+            }
+        } else {
+            entry.target.classList.remove("slide");
+        }
+    });
+}, options);
+
+// Observe each element
+mainDayTime.forEach((element) => {
+    dayTimeObserver.observe(element);
+});
+
+//////////////////////////////// end daytime
+
+
+
+/////////////////////////// start portfolio 
+let imgPortfolio = document.querySelectorAll(".imgs-container .box")
+const portfolioObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Toggle the 'slide' class based on the element's intersection status
+        if (entry.isIntersecting) {
+            entry.target.classList.add("slide");
+            // Unobserve the element once it's intersected
+            portfolioObserver.unobserve(entry.target);
+            observedCount--;
+
+            // Disconnect the observer if no more elements are left to observe
+            if (observedCount === 0) {
+                portfolioObserverr.disconnect();
+            }
+        } else {
+            entry.target.classList.remove("slide");
+        }
+    });
+}, options);
+
+// Observe each element
+imgPortfolio.forEach((element) => {
+    portfolioObserver.observe(element);
+});
+
+/////////////////////////// end portfolio 
+
+////////////////////////////////////////////////// Start Skills
+let bulletsSkills = document.querySelectorAll(".bullets li")
+let allContent = document.querySelectorAll(".all-content .M1")
+console.log(allContent);
+console.log(bulletsSkills);
+bulletsSkills.forEach((ele) => {
+    ele.onclick = function () {
+        bulletsSkills.forEach((ele) => {
+            ele.classList.remove("active")
+        })
+        this.classList.add("active")
+    }
+    ele.addEventListener("click" , function () {
+        allContent.forEach((ele) => {
+            ele.style.display = "none"
+        })
+        document.querySelectorAll(this.dataset.work).forEach((ele) => {
+            ele.style.display = "block"
+        })
+    })
+})
+let secondContent = document.querySelectorAll(".M1 .content")
+// IntersectionObserver callback
+const testimonialsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Toggle the 'slide' class based on the element's intersection status
+        if (entry.isIntersecting) {
+            entry.target.classList.add("slide");
+            // Unobserve the element once it's intersected
+            testimonialsObserver.unobserve(entry.target);
+            observedCount--;
+
+            // Disconnect the observer if no more elements are left to observe
+            if (observedCount === 0) {
+                testimonialsObserver.disconnect();
+            }
+        } else {
+            entry.target.classList.remove("slide");
+        }
+    });
+}, options);
+
+// Observe each element
+secondContent.forEach((element) => {
+    testimonialsObserver.observe(element);
+});
+
+
+// End Skills
+
+
+
+
+
+////////////////////////////////////////////////// End  Skills
+
+////////////////////////////////////////////// start features
+
+let mainFeatures = document.querySelectorAll(".features .fet")
+const featuresObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Toggle the 'slide' class based on the element's intersection status
+        if (entry.isIntersecting) {
+            entry.target.classList.add("slide");
+            // Unobserve the element once it's intersected
+            featuresObserver.unobserve(entry.target);
+            observedCount--;
+
+            // Disconnect the observer if no more elements are left to observe
+            if (observedCount === 0) {
+                featuresObserver.disconnect();
+            }
+        } else {
+            entry.target.classList.remove("slide");
+        }
+    });
+}, options);
+
+// Observe each element
+mainFeatures.forEach((element) => {
+    featuresObserver.observe(element);
+});
+
+////////////////////////////////////////////// end features
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////// Start Contact US 
 let submit = document.querySelector(".btn-py")
 
 submit.addEventListener("click" , function () {
 
     window.alert("Your Massage Has Been Sent")
 })
-// End Contact US
+/////////////////////////////////////////// End Contact US

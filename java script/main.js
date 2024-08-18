@@ -315,14 +315,14 @@ let products =[
         title : 'Vegeterian Pizza' ,
         img : 'images/vegi.png',
         price : 12
-        , catgeory : "pasta"
+        , catgeory : "pizza"
     },
     {
         id : 3 ,
         title : ' Turkey Pizza' ,
         img : 'images/smoketurkey.png',
         price : 18
-        , catgeory : "pasta"
+        , catgeory : "pizza"
     },
     {
         id : 4 ,
@@ -448,7 +448,8 @@ let products =[
         title : 'Donuts' ,
         img : 'images/donuts.png',
         price : 15
-        , catgeory : "dessert"
+        , catgeory : "dessert" 
+        ,
     },
 ]
 
@@ -512,20 +513,43 @@ allProducts.forEach((element) => {
 
 
 
-// let mainProduct = document.querySelectorAll(".catigories .products")
-// let filterCate = document.querySelectorAll(".all-cate li")
-// filterCate.forEach((ele) => {
-// ele.addEventListener("click" , function () {
-//     mainProduct.forEach((ele) => {
-//         ele.style.display = "none"
-//     })
-//     document.querySelectorAll(this.dataset.catgeory).forEach((item) => {
-//         ele.style.display = "block"
-//     })
-       
-  
-// })
-// })
+let mainProduct = document.querySelectorAll(".catigories .products")
+let filterCate = document.querySelectorAll(".all-cate li")
+filterCate.forEach((ele) => {
+ele.addEventListener("click" , function () {
+    
+  const filterdProducts =  products.filter(({catgeory}) =>  catgeory === this.getAttribute("data-category")) 
+  const allProducts = products.filter((ele) => {
+    console.log(ele);
+    if (ele === undefined) {
+        return products
+    }
+    
+  })
+
+  let productsUI = filterdProducts.map((item) => {
+    return `
+    <div class="products" >
+        <div class="photo"><img src="${item.img}" alt=""></div>
+        <div class="product-name">${item.title}</div>
+         <div class="product-cate" data-category="${item.catgeory}"></div>
+        
+        <div class="info">
+            <div class="main-info">
+                <div class="pr">Price</div>
+                <div class="dr">${item.price}</div>
+            </div>
+            <div class="add">
+                <button class="add-to-cart" onclick="addedToCart(${item.id})">Add To Cart</button> 
+            </div>
+        </div>
+    </div>
+    `
+})
+   return categories.innerHTML = productsUI  
+
+})
+})
 
 let n = 100.544444
 let AddedItem = []

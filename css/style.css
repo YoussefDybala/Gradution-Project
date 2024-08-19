@@ -624,13 +624,14 @@ header{
   .setting .option-box {
     padding: 20px;
     background-color: #eee;
-    margin-bottom: 10px;
+    margin: 13px 0;
   }
   .setting .option-box h4 {
     margin: 0;
     color: #666;
     padding: 10px 0;
     text-align: center;
+    font-size: 23px;
   }
   .setting .option-box .colors-list{
     list-style: none;
@@ -690,22 +691,25 @@ header{
   background-color: #333;
  }
  .setting .option-box .bullet-control .yes {
-  width: 70px;
+  width: 90px;
   text-align: center;
   margin-right: 10px;
   background-color: #a6a6a6;
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 18px;
+
  }
  .setting .option-box .bullet-control .no {
-  width: 70px;
+  width: 90px;
   text-align: center;
   margin-left: 10px;
   background-color: #a6a6a6;
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 18px;
  }
  .close {
   position: absolute;
@@ -713,6 +717,7 @@ header{
   right: 0;
   cursor: pointer;
   font-size: 25px;
+  padding-bottom: 15px;
  }
 /* End Setting Menu */
 
@@ -1295,20 +1300,50 @@ font-size: 15px;
       align-items: center;
       flex-wrap: wrap;
      }
+     .filter-cate ul img {
+      width: 50px;
+      height: 50px;
+
+    }
     .filter-cate ul li {
+      width: fit-content;
+      height: 70px;
     margin-right: 10px;
     margin-bottom: 10px;
      font-size: 22px;
      font-weight: bold;
-     background-color: green;
+    border: 3px solid var(--main-color);
      padding: 8px;
      border-radius: 8px;
-     color: white;
      transition: 0.4s;
      cursor: pointer;
      }
      .filter-cate ul li:hover {
       background-color: var(--main-color);
+      color: white;
+     }
+     .filter-active {
+      background-color: var(--main-color);
+      color: white;
+     }
+     @media (max-width : 768px) {
+      .filter-cate ul img {
+        position: relative;
+        top: -45px;
+       }
+       .filter-cate ul li {
+        width: fit-content;
+        height: 70px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+         font-size: 22px;
+         font-weight: bold;
+        border: 3px solid var(--main-color);
+         border-radius: 8px;
+         transition: 0.4s;
+         cursor: pointer;
+          display: flex;
+         }
      }
     .product {
         font-size: 30px;

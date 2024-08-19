@@ -389,62 +389,76 @@ let products =[
     },
     {
         id : 13 ,
+        title : 'French Fries' ,
+        img : 'images/fries.png',
+        price : 12
+           , catgeory : "extra"
+    },
+    {
+        id : 14 ,
+        title : 'Onion Rings' ,
+        img : 'images/onion.png',
+        price : 13
+           , catgeory : "extra"
+    },
+    {
+        id : 15 ,
         title : 'Esspreco Double' ,
         img : 'images/Esspreco double.png',
         price : 9
            , catgeory : "coffe"
     },
     {
-        id : 14 ,
+        id : 16 ,
         title : 'Cortado Classic' ,
         img : 'images/cortado classic.png',
         price : 11
          , catgeory : "coffe"
     },
     {
-        id : 15 ,
+        id : 17 ,
         title : 'Green Tea' ,
         img : 'images/Green Tea.png',
         price : 7
          , catgeory : "coffe"
     },
     {
-        id : 16 ,
+        id : 18 ,
         title : 'Lemome Juice' ,
         img : 'images/Lemon Juice.png',
         price : 13
          , catgeory : "juice"
     },
     {
-        id : 17 ,
+        id : 19 ,
         title : 'Orange Juice' ,
         img : 'images/Orange Juice.png',
         price : 14
         , catgeory : "juice"
     },
     {
-        id : 18 ,
+        id : 20 ,
         title : 'Watermelon Juice' ,
         img : 'images/Watermelon Juice.png',
         price : 15
         , catgeory : "juice"
     },
     {
-        id : 19 ,
+        id : 21 ,
         title : 'Cookies' ,
         img : 'images/cookies.png',
         price : 11
         , catgeory : "dessert"
     },
     {
-        id : 20,
+        id : 22,
         title : 'Ice Cream Cono' ,
         img : 'images/ice cream cono.png',
         price : 12 
        , catgeory : "dessert"
     },
     {
-        id : 21 ,
+        id : 23 ,
         title : 'Donuts' ,
         img : 'images/donuts.png',
         price : 15
@@ -465,7 +479,7 @@ function drawProductsUI () {
             <div class="photo"><img src="${item.img}" alt=""></div>
             <div class="product-name">${item.title}</div>
              <div class="product-cate" data-category="${item.catgeory}"></div>
-            
+              
             <div class="info">
                 <div class="main-info">
                     <div class="pr">Price</div>
@@ -512,47 +526,49 @@ allProducts.forEach((element) => {
 
 
 
-
 let mainProduct = document.querySelectorAll(".catigories .products")
 let filterCate = document.querySelectorAll(".all-cate li")
 filterCate.forEach((ele) => {
-ele.addEventListener("click" , function () {
     
-  const filterdProducts =  products.filter(({catgeory}) =>  catgeory === this.getAttribute("data-category")) 
-  const allProducts = products.filter((ele) => {
-    console.log(ele);
-    if (ele === undefined) {
-        return products
+    ele.onclick = function () {
+        filterCate.forEach((ele) => {
+            ele.classList.remove("filter-active")
+        })
+        this.classList.add("filter-active")
     }
-    
-  })
 
-  let productsUI = filterdProducts.map((item) => {
-    return `
-    <div class="products" >
-        <div class="photo"><img src="${item.img}" alt=""></div>
-        <div class="product-name">${item.title}</div>
-         <div class="product-cate" data-category="${item.catgeory}"></div>
+    ele.addEventListener("click" , function () {
+          const filterdProducts =  products.filter(({catgeory}) =>   catgeory === this.getAttribute("data-category")) 
+          let productsUI = filterdProducts.map((item) => {
+                return `
+                <div class="products" >
+                    <div class="photo"><img src="${item.img}" alt=""></div>
+                    <div class="product-name">${item.title}</div>
+                     <div class="product-cate" data-category="${item.catgeory}"></div>
+
+                    <div class="info">
+                        <div class="main-info">
+                            <div class="pr">Price</div>
+                            <div class="dr">${item.price}</div>
+                        </div>
+                        <div class="add">
+                            <button class="add-to-cart" onclick="addedToCart(${item.id})">Add To Cart</button> 
+                        </div>
+                    </div>
+                </div>
+                `
+            })
+               return categories.innerHTML = productsUI  
+            
+            })
+            })
+
         
-        <div class="info">
-            <div class="main-info">
-                <div class="pr">Price</div>
-                <div class="dr">${item.price}</div>
-            </div>
-            <div class="add">
-                <button class="add-to-cart" onclick="addedToCart(${item.id})">Add To Cart</button> 
-            </div>
-        </div>
-    </div>
-    `
-})
-   return categories.innerHTML = productsUI  
+           
 
-})
-})
 
-let n = 100.544444
-let AddedItem = []
+            let n = 100.544444
+            let AddedItem = []
 let cartsProduct = document.querySelector(".carts-product")
 let Notfication = document.querySelector(".Notfi")
 let value = document.querySelector(".value")
